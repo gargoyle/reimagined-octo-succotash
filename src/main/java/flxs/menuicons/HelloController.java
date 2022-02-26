@@ -1,5 +1,6 @@
 package flxs.menuicons;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -16,7 +17,7 @@ public class HelloController implements Initializable {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        welcomeText.setText("Owch!!");
     }
     
     @FXML
@@ -27,6 +28,9 @@ public class HelloController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String javaVersion = System.getProperty("java.version");
+        String javafxVersion = System.getProperty("javafx.version");
+        welcomeText.setText("Welcome to JavaFX " + javafxVersion + ", running on Java " + javaVersion);
         menubar.setUseSystemMenuBar(true);
         aboutmenu.setGraphic(new ImageView(HelloController.class.getResource("icon_one.png").toExternalForm()));
     }
